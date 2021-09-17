@@ -8,7 +8,7 @@ group = "com.justai.jaicf"
 version = "1.0.0"
 
 val jaicf = "1.2.0"
-val logback = "1.2.3"
+val logback = "1.2.5"
 
 // Main class to run application on heroku. Either JaicpPollerKt, or JaicpServerKt. Will propagate to .jar main class.
 application {
@@ -23,13 +23,16 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.21")
 
     implementation("ch.qos.logback:logback-classic:$logback")
 
     implementation("com.just-ai.jaicf:core:$jaicf")
     implementation("com.just-ai.jaicf:jaicp:$jaicf")
     implementation("com.just-ai.jaicf:caila:$jaicf")
+
+    //Подключаем либу для работы с Mongo
+    implementation("com.just-ai.jaicf:mongo:$jaicf")
 }
 
 tasks {
